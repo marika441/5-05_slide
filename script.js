@@ -1,6 +1,9 @@
 'use strict';
 
 const images = ['images/image1.jpg', 'images/image2.jpg', 'images/image3.jpg', 'images/image4.jpg', 'images/image5.jpg'];
+images.forEach(function(item, index) {
+  preloadImage(item);
+});
 let current = 0;
 
 function changeImage(num) {
@@ -13,6 +16,11 @@ function changeImage(num) {
 
 function pageNum() {
   document.getElementById('page').textContent = `${current + 1}/${images.length}`
+}
+
+function preloadImage(path) {
+  let imgTag = document.createElement('img');
+  imgTag.src = path;
 }
 
 pageNum();
